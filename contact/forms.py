@@ -8,7 +8,7 @@ class ContactForm(forms.ModelForm):
         widget=forms.TextInput(
             attrs={
                 'class': 'classe-a classe-a',
-                'placeholder' : 'Aqui veio do init'
+
             }
         ),
         help_text='Texto de ajuda'
@@ -29,9 +29,9 @@ class ContactForm(forms.ModelForm):
         first_name = cleaned_data.get('first_name')
         last_name = cleaned_data.get('last_name')
 
-        if first_name != last_name:
+        if first_name == last_name:
             msg = ValidationError(
-                    'Primeira nome não pode ser diferente do segundo',
+                    'Primeira nome não pode ser igual ao segundo',
                     code = 'invalid')
             
             self.add_error('first_name', msg)
