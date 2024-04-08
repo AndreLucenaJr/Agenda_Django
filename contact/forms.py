@@ -1,9 +1,10 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from . import models
-
+from django.contrib.auth.forms import UserCreationForm
 
 class ContactForm(forms.ModelForm):
+    
     
     picture = forms.ImageField(
         widget=forms.FileInput(
@@ -43,3 +44,9 @@ class ContactForm(forms.ModelForm):
             )
 
         return first_name
+    
+
+
+
+class RegisterForm(UserCreationForm):
+    ...
